@@ -1,0 +1,328 @@
+/*
+font-family: 'Roboto Mono', monospace;
+*/
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+    color: white;
+}
+
+body {
+    overflow: hidden;
+    background-color: rgb(10, 10, 10);
+}
+
+
+/* ini: Preloader */
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1a1a1a;
+    /* cor do background que vai ocupar o body */
+    z-index: 999;
+    /* z-index para jogar para frente e sobrepor tudo */
+}
+
+#preloader .inner {
+    position: absolute;
+    top: 50%;
+    /* centralizar a parte interna do preload (onde fica a animação)*/
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bolas>div {
+    display: inline-block;
+    background-color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    margin: 3px;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-name: animarBola;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.bolas>div:nth-child(1) {
+    animation-duration: 0.75s;
+    animation-delay: 0;
+}
+
+.bolas>div:nth-child(2) {
+    animation-duration: 0.75s;
+    animation-delay: 0.12s;
+}
+
+.bolas>div:nth-child(3) {
+    animation-duration: 0.75s;
+    animation-delay: 0.24s;
+}
+
+@keyframes animarBola {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+    16% {
+        -webkit-transform: scale(0.1);
+        transform: scale(0.1);
+        opacity: 0.7;
+    }
+    33% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* end: Preloader */
+
+nav {
+    background: #141414;
+    height: 80;
+    width: 100%;
+}
+
+label.logo {
+    color: white;
+    font-size: 20px;
+    line-height: 80px;
+    margin: 20px;
+}
+
+label.mobile {
+    color: white;
+    font-size: 20px;
+    line-height: 80px;
+    margin: 20px;
+    display: none;
+}
+
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    transition: all .5s ease 0s;
+}
+
+nav ul li a:hover {
+    background: #3d3d3d;
+}
+
+.checkbtn {
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+
+
+#check:checked~ul {
+    left: 0;
+}
+/*CONTEÚDO DO CORPO*/
+.section-1{
+  background-color: rgb(10, 10, 10);
+  display: flex;
+  justify-content: center;
+}
+.img-txt{
+  margin: 50px; 
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.logo-lua{
+  width: 300px;
+  margin: 0 30px;
+}
+.pdesc{
+  width: 400px;
+  height: 300px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.pdesc p{
+  width: 400px;
+  height: 50px;
+  background-color: #151515;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.uinvite{
+  height: 130px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: rgb(10, 10, 10);
+  justify-content: center;
+  align-items: center;
+}
+.biton{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.btn-i{
+  width: 200px;
+  height: 55px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+.invi{
+  background-color: rgb(32, 90, 197);
+  color: #fff;
+  border-radius: 5px;
+}
+.comm{
+  background-color: rgb(80, 80, 80);
+  border-radius: 5px;
+}
+.invi:hover{
+  background-color: rgb(80, 80, 80);
+}
+.comm:hover{
+  background-color: rgb(32, 90, 197);
+}
+.ico{margin-right:10px; }
+.acvite{
+  padding: 7px 13px;
+  background: #3d3d3d;
+
+}
+/*MOBILE*/
+@media(max-width: 900px) {
+    label.logo {
+        display: none;
+    }
+    label.mobile {
+        font-size: 30px;
+        padding-left: 40px;
+        display: initial;
+    }
+    .checkbtn {
+        display: block;
+    }
+    ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #575757;
+        text-align: center;
+        top: 80px;
+        left: -100%;
+        transition: all 0.3s ease-out 0s;
+    }
+    nav ul li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a {
+        font-size: 20px;
+    }
+    nav ul li a:hover{
+      background-color: rgb(19, 19, 19);
+      padding: 7px 15px;
+      color: white;
+    }
+    nav ul li a:active{
+      padding: 15px 20px;
+    }
+    .logo-lua{
+      width: 350px;
+    }
+    .pdesc{
+      width: 100%;
+      margin: 20px 20px 10px 20px;
+      height: 220px;
+    }
+    .pdesc p{
+      font-size: 15px;
+      width: 400px;
+      padding: 20px 10px;
+    }
+    .uinvite{
+      height: 200px;
+    }
+}
+@media(max-width: 600px) {
+    label.logo {
+        display: none;
+    }
+    label.mobile {
+        font-size: 30px;
+        padding-left: 40px;
+        display: initial;
+    }
+    nav ul li a {
+        font-size: 16px;
+        transition: all 0.3s 0s;
+    }
+    nav ul li a:hover{
+      background-color: rgb(19, 19, 19);
+      padding: 7px 15px;
+      color: white;
+    }
+    nav ul li a:active{
+      padding: 15px 20px;
+    }
+    .logo-lua{
+      width: 200px;
+    }
+    .pdesc{
+      width: 100%;
+      margin: 20px 20px 10px 20px;
+    }
+    .pdesc p{
+      font-size: 12px;
+      width: 200px;
+    }
+}
